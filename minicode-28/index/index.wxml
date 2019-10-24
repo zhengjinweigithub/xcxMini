@@ -1,0 +1,19 @@
+<!--template/recycle-view-list/item/item.wxml-->
+<view class="itemRecord">
+  <image class="img"></image>
+  <view class="name">商品名称</view>
+  <view class="icon">
+    <text>包邮</text>
+    <text>包邮</text>
+  </view>
+  <view class="oldPrice">￥100</view>
+  <view>
+    <view class="newPrice">￥100</view>
+    <view class="btn">
+      <view style="background:url('/images/collect.png') no-repeat 80%/80%;"></view>
+      <view style="background:url('/images/index/share@3x.png') no-repeat 80%/80%;">
+        <button plain="true" open-type="share"></button>
+      </view>
+    </view>
+  </view>
+</view>

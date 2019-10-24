@@ -1,0 +1,23 @@
+<!--template/recycle-view-list/item/item.wxml-->
+<view class="itemRecord">
+  <image class="img" src="{{data.images[0]}}" lazy-load="true"></image>
+  <view class="name">{{data.title}}</view>
+  <view class="icon">
+    <text wx:if="{{data.freeShip}}">到付</text>
+    <text wx:if="{{data.toPay}}">包邮</text>
+    <text>包退</text>
+  </view>
+  <view class="oldPrice">￥{{data.price}}</view>
+  <view>
+    <view class="newPrice">￥{{data.agentPrice}}</view>
+    <view class="btn">
+      <view>
+        <image src="{{data.collect ? '/images/collect_on.png' : '/images/collect.png' }}"></image>
+      </view>
+      <view>
+        <image src="/images/index/share@3x.png"></image>
+        <button plain="true" open-type="share"></button>
+      </view>
+    </view>
+  </view>
+</view>

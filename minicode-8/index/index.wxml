@@ -1,0 +1,184 @@
+<view style="height:100%;">
+  <!--收搜索栏-->
+  <view class='ind_search'>
+    <view bindtap='tosearchPage' class="ind_searchIn">
+      <image src='{{pageimg[0].url}}' mode='widthFix'></image>
+      <input value='{{keyword}}' placeholder='搜索你需要的热门关键词' placeholder-class='colorno4' disabled></input>
+    </view>
+    <view class="ind_search_r">
+      <image bindtap="showtypeClick" src='{{pageimg[1].url}}'></image>
+    </view>
+  </view>
+  <!--顶部滑动分类-->
+  <view class="ind_tab">
+    <scroll-view class="ind_scroll" scroll-x="true" style="padding-right:5%;">
+      <block wx:for="{{classList}}">
+        <view bindtap='selectClass' data-ind="{{index}}" data-ids="{{item.id}}" class="tabname {{categoryId==item.id?'on_tabname':''}}">
+          {{item.name}}
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <!--二级分类-->
+  <view wx:if="{{menu_two}}" class="ind_tab">
+    <scroll-view class="ind_scroll" scroll-x="true" scroll-into-view="ej{{categoryTwoId}}" scroll-with-animation>
+      <block wx:for="{{classTwoList}}">
+        <view bindtap='selectTwoClass' id="ej{{item.id}}" data-ids="{{item.id}}" class="tabname {{categoryTwoId==item.id?'on_tabname':''}}">
+          {{item.name}}
+        </view>
+      </block>
+    </scroll-view>
+    <view bindtap="moreshowclick" class='ind_more'>
+      <view>更多</view>
+    </view>
+  </view>
+  <!--二级分类--更多展示-->
+  <view wx:if="{{menu_two2}}" class="class_two_more">
+    <text bindtap='selectTwoClass' data-ids="{{item.id}}" class="two_more_record {{categoryTwoId==item.id?'colorno2':''}}" wx:for="{{classTwoList}}">{{item.name}}</text>
+  </view>
+  <!--页面内容-->
+  <scroll-view bindtap="hidemenuclick" class="ind_body" scroll-y="true" bindscrolltolower="scrollLower" enable-back-to-top="true" scroll-top="{{scrollTop}}" style="{{menu_two?'padding-top:258rpx;':''}} {{showtype?'background-color:#fff;':''}}">
+  
+    <block wx:if="{{showtype}}" wx:for="{{productList}}">
+      <view class="products">
+        <view class="products_left">
+          <view bindtap="toShopIndexPage" data-shopuri="{{item.shopUri}}" class="pd_l_img">
+            <image src="{{item.headimg}}?x-oss-process=image/auto-orient,1/resize,p_25/quality,q_25" mode="widthFix"></image>
+          </view>
+          <!-- <view class="pd_l_gz">关注</view> -->
+        </view>
+        <view class="products_right">
+          <view bindtap="toShopIndexPage" data-shopuri="{{item.shopUri}}" class="products_right_top">
+            <view>
+              <text class="icon_dj">V<text class="icon_dj_text">{{item.level}}</text></text>
+              <text>{{item.nickname}}</text>
+            </view>
+          </view>
+          <view bindtap='bindplaynow' data-shopuri='{{item.shopUri}}' data-categoryid='{{item.categoryId}}' data-salecode='{{item.saleCode}}' id='{{item.id}}'>
+            <text class='pro_name'>{{item.title}}</text>
+          </view>
+          <view bindtap='bindplaynow' data-shopuri='{{item.shopUri}}' data-categoryid='{{item.categoryId}}' data-salecode='{{item.saleCode}}' id='{{item.id}}'>
+            <text class='pro_detail hide9'>{{item.content}}</text>
+          </view>
+          <!-- <view class="quanwen colorno2 font_s_13px" bindtap="showall">全文</view> -->
+          <view class="img_group">
+            <view>
+              <block wx:if="{{item.videos.length>0}}">
+                <block wx:for="{{item.videos}}" wx:for-item="itemvideo">
+                  <view bindtap="indexvideoplay" data-videourl="{{itemvideo}}" class="view_video">
+                    <image class="video_play" src="/images/sp@3x.png" mode="widthFix"></image>
+                    <image class="video_img" wx:if="{{item.cutPic}}" src="{{item.cutPic}}?x-oss-process=image/auto-orient,1/resize,p_25/quality,q_25" mode="aspectFill"></image>
+                  </view>
+                </block>
+              </block>
+              <block wx:if="{{item.images.length==9 && item.videos.length>0}}">
+                <block wx:for="{{item.images}}" wx:for-index="idx" wx:for-item="itemimage">
+                  <block wx:if="{{idx < 8}}">
+                    <view class="view_video">
+
+                      <image lazy-load class="pro_image" bindtap='previewImage' data-current='{{itemimage}}' data-list='{{item.images}}' src='{{itemimage}}?x-oss-process=image/auto-orient,1/resize,p_25/quality,q_25' mode="aspectFill"></image>
+
+                    </view>
+                  </block>
+                </block>
+              </block>
+              <block wx:else>
+                <block wx:for="{{item.images}}" wx:for-index="idx" wx:for-item="itemimage">
+                  <view class="view_video">
+                    <image lazy-load class="pro_image" bindtap='previewImage' data-current='{{itemimage}}' data-list='{{item.images}}' src='{{itemimage}}?x-oss-process=image/auto-orient,1/resize,p_25/quality,q_25' mode="aspectFill"></image>
+                  </view>
+                </block>
+              </block>
+            </view>
+          </view>
+          <view class="pro_foo">
+            <view>
+              <text class="ico_by" wx:if='{{item.freeShip}}'>包邮</text>
+              <image bindtap="downloadClick" data-list="{{item.images}}" data-text="{{item.content}}" class="on_down" src='{{pageimg[2].url}}'></image>
+              <button data-img="{{item.images[0]}}" data-shopuri='{{item.shopUri}}' id='{{item.id}}' data-title="{{item.title}}" plain="true" open-type="share">
+                <image class='on_share' src='{{pageimg[3].url}}'></image>
+              </button>
+              <image bindtap="collectgood" data-ind="{{index}}" data-goodsid="{{item.id}}" data-collect="{{item.collect}}"  class='imgsc' src='{{item.collect?pageimg[5].url:pageimg[4].url}}'></image>
+            </view>
+            <view class="pandplay">
+              <view>
+
+                <text class='pr_v'>￥<text class="price">{{userType==2?item.agentPrice:item.price}}</text></text>
+                <text wx:if="{{userType==2}}" class='pr_v pr_v1'>￥<text class="price ">{{item.price}}</text></text>
+                <!-- <text class='nu_v'>月销<text class="number">{{item.nums}}</text>件</text> -->
+              </view>
+              <view class='dy_fl_r'>
+                <text class="topay" bindtap='bindplaynow' data-shopuri='{{item.shopUri}}' data-categoryid='{{item.categoryId}}' data-salecode='{{item.saleCode}}' id='{{item.id}}'>立即购买</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <view wx:if="{{!showtype}}" class="v_css3">
+      <view class="v_css2" wx:for="{{productList}}" wx:if="{{index%2==0}}">
+        <view class="v_css2_1" bindtap='bindplaynow' data-shopuri='{{item.shopUri}}' data-categoryid='{{item.categoryId}}' data-salecode='{{item.saleCode}}' id='{{item.id}}'>
+          <image src='{{item.images[0]}}?x-oss-process=image/auto-orient,1/resize,p_25/quality,q_25' mode="aspectFill"></image>
+        </view>
+        <view style="padding:0 5%;">
+          <view bindtap='bindplaynow' data-shopuri='{{item.shopUri}}' data-categoryid='{{item.categoryId}}' data-salecode='{{item.saleCode}}' id='{{item.id}}'>
+            <view class="v_css2_2">
+              {{item.title}}
+            </view>
+            <view class="v_css2_3" wx:if='{{item.freeShip}}'>
+              <text class="ico_by">包邮</text>
+            </view>
+          </view>
+
+          <view wx:if="{{userType==2}}" class="v_css2_5">
+            <text>￥<text class="price ">{{item.price}}</text></text>
+          </view>
+          <view class="v_css2_4">
+            <text class="colorno2 font_b">￥{{userType==2?item.agentPrice:item.price}}</text>
+            <image bindtap="downloadClick" data-list="{{item.images}}" data-text="{{item.content}}" class="on_down1" src='{{pageimg[2].url}}'></image>
+            <button data-img="{{item.images[0]}}" data-shopuri='{{item.shopUri}}' id='{{item.id}}' data-title="{{item.title}}" plain="true" open-type="share">
+              <image class='on_share1' src='{{pageimg[3].url}}'></image>
+            </button>
+            <image bindtap="collectgood" data-ind="{{index}}" data-goodsid="{{item.id}}" data-collect="{{item.collect}}"  class='imgsc' src='{{item.collect?pageimg[5].url:pageimg[4].url}}'></image>
+          </view>
+        </view>
+      </view>
+
+      <view class="v_css2" wx:for="{{productList}}" wx:if="{{index%2!=0}}">
+        <view class="v_css2_1" bindtap='bindplaynow' data-shopuri='{{item.shopUri}}' data-categoryid='{{item.categoryId}}' data-salecode='{{item.saleCode}}' id='{{item.id}}'>
+          <image src='{{item.images[0]}}' mode="aspectFill"></image>
+        </view>
+        <view style="padding:0 5%;">
+          <view bindtap='bindplaynow' data-shopuri='{{item.shopUri}}' data-categoryid='{{item.categoryId}}' data-salecode='{{item.saleCode}}' id='{{item.id}}'>
+            <view class="v_css2_2">
+              {{item.title}}
+            </view>
+            <view class="v_css2_3" wx:if='{{item.freeShip}}'>
+              <text class="ico_by">包邮</text>
+            </view>
+          </view>
+
+          <view wx:if="{{userType==2}}" class="v_css2_5">
+            <text>￥<text class="price ">{{item.price}}</text></text>
+          </view>
+          <view class="v_css2_4">
+            <text class="colorno2 font_b">￥{{userType==2?item.agentPrice:item.price}}</text>
+            <image bindtap="downloadClick" data-list="{{item.images}}" data-text="{{item.content}}" class="on_down1" src='{{pageimg[2].url}}'></image>
+            <button data-img="{{item.images[0]}}" data-shopuri='{{item.shopUri}}' id='{{item.id}}' data-title="{{item.title}}" plain="true" open-type="share">
+              <image class='on_share1' src='{{pageimg[3].url}}'></image>
+            </button>
+            <image bindtap="collectgood" data-ind="{{index}}" data-goodsid="{{item.id}}" data-collect="{{item.collect}}"  class='imgsc' src='{{item.collect?pageimg[5].url:pageimg[4].url}}'></image>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class="view_nulllist" wx:if="{{isnulllistshowimg}}">
+      <image src="/images/nullimg@3x.png"></image>
+    </view>
+    <view class='v_nomore' wx:if="{{!isnulllist}}">没有更多数据</view>
+  </scroll-view>
+</view>
+<authorize pageCode="index"></authorize>

@@ -1,0 +1,31 @@
+.radio-group {
+    border-bottom: 1px solid #ddd;
+}
+.radio {
+    display: block;
+    border-top: 1px solid #ddd;
+    padding: 5px;
+}
+radio .wx-radio-input {
+  width: 30rpx;
+  height: 30rpx;
+  border: 4rpx solid #999;
+  border-radius: 100%;
+  background: none;
+}
+
+/*单选按钮选中后内部样式*/
+
+radio .wx-radio-input.wx-radio-input-checked {
+  border: 4rpx solid #3cbcee!important;
+}
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+  width: 60%;
+  height: 60%;
+  background: #3cbcee;
+  border-radius: 100%;
+  content: '';
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}

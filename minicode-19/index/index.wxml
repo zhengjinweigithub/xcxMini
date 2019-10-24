@@ -1,0 +1,20 @@
+<recycle-view class="list" batch="{{batchSetRecycleData}}" id="recycleId" bindscrolltolower="bindscrolltolower" scroll-y="true">
+  <view class="left">
+    <recycle-item class="record" wx:for="{{recycleList}}" wx:key="idxs" wx:if="{{ item.idxs % 2 == 0 }}" style="height:{{item.itemH}}px;">
+      <view class="record_o">
+        <!-- <image class="imgsss" src="{{item.imgUrl}}" mode="aspectFill" lazy-load="true"></image> -->
+        <view class="imgsss"></view>
+        <view class="tti">{{item.idxs}}{{item.desc}}</view>
+      </view>
+    </recycle-item>
+  </view>
+  <view class="right">
+    <recycle-item class="record" wx:for="{{recycleList}}" wx:key="idxs" wx:if="{{ item.idxs % 2 == 1 }}" style="height:{{item.itemH}}px;">
+      <view class="record_o">
+        <view class="imgsss"></view>
+        <view class="tti">{{item.idxs}}{{item.desc}}</view>
+      </view>
+    </recycle-item>
+  </view>
+  <view slot="after" class="botttt">加载中...</view>
+</recycle-view>

@@ -1,0 +1,70 @@
+<!--pages/products/productList/productList.wxml-->
+<!--筛选点击--->
+<view class="filtrate-view">
+  <view class="filtrate-view-view">
+    <view class="{{sortField=='all'?'colorno2':''}}" bindtap="sortFieldClick" data-type="all">
+      <text>综合</text>
+    </view>
+    <view class="{{sortField=='sales'?'colorno2':''}}" bindtap="sortFieldClick" data-type="sales">
+      <text>销量</text>
+      <image wx:if="{{ sortField != 'sales'}}" src="{{ pageimg1[2] }}" mode="widthFix"></image>
+      <block wx:if="{{ sortField == 'sales'}}">
+        <image hidden="{{ sort != 0 }}" src="{{ pageimg1[0] }}" mode="widthFix"></image>
+        <image hidden="{{ sort != 1 }}" src="{{ pageimg1[1] }}" mode="widthFix"></image>
+      </block>
+    </view>
+    <view class="{{sortField=='price'?'colorno2':''}}" bindtap="sortFieldClick" data-type="price">
+      <text>价格</text>
+      <image wx:if="{{ sortField != 'price'}}" src="{{ pageimg1[2] }}" mode="widthFix"></image>
+      <block wx:if="{{ sortField == 'price'}}">
+        <image hidden="{{ sort != 0 }}" src="{{ pageimg1[0] }}" mode="widthFix"></image>
+        <image hidden="{{ sort != 1 }}" src="{{ pageimg1[1] }}" mode="widthFix"></image>
+      </block>
+    </view>
+  </view>
+</view>
+
+<!--长列表-->
+<recycle-view 
+  batch="{{batchSetRecycleData}}" 
+  id="recycleId"
+  height="{{recycleH}}"
+  style="height: {{recycleH}}px" 
+  bindscrolltolower="scrolltolower"
+  >
+  <recycle-item wx:for="{{recycleList}}" wx:key="id" style="float:left">
+    <recycleItem data="{{item}}"></recycleItem>
+  </recycle-item>
+  <view slot="after">
+    <view class="loadingcss">
+      <image src="/images/listLoad.png" mode="widthFix"></image>
+      <text>加载中</text>
+    </view>
+  </view>
+</recycle-view>
+
+
+<!--底部菜单栏--->
+<view class="bottom_menu" style="height:{{bottomCss + 50}}px">
+  <view bindtap="toPageChange" data-url="/pages/indexTwo/index">
+    <image src="/images/index/sy@3x.png" mode="widthFix"></image>
+    <view>首页</view>
+  </view>
+  <view bindtap="toPageChange" data-url="/pages/shopping/shopping">
+    <image src="/images/index/cjg.png" mode="widthFix"></image>
+    <view>超级购</view>
+  </view>
+  <view bindtap="toPageChange" data-url="/pages/lottery/lottery">
+    <image src="/images/index/ttcj.png" mode="widthFix"></image>
+    <view>天天抽奖</view>
+  </view>
+  <view bindtap="toPageChange" data-url="/pages/focus/shoplist/shoplist">
+    <image src="/images/index/sq@3x.png" mode="widthFix"></image>
+    <view>收藏关注</view>
+  </view>
+  <view bindtap="toPageChange" data-url="/pages/personal/personal/personal">
+    <image src="/images/index/wd@3x.png" mode="widthFix"></image>
+    <view>我的</view>
+  </view>
+</view>
+<goldAddModal ishow="{{ishowGoldAdd}}" goldnum="{{goldnum}}"></goldAddModal>

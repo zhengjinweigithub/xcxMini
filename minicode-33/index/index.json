@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "产品列表",
+  "navigationBarBackgroundColor": "#000000",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#000000",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "recycleItem": "/template/recycle-view-list-item/item/item",
+    "recycle-view": "miniprogram-recycle-view/recycle-view",
+    "recycle-item": "miniprogram-recycle-view/recycle-item"
+  }
+}

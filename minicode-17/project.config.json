@@ -1,0 +1,41 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.5.0",
+	"appid": "wxaac93e3a46f836d9",
+	"projectname": "%E7%A9%BA%E7%99%BD%E8%A7%86%E5%9B%BE%E6%94%AF%E6%92%91%E5%88%97%E8%A1%A8%EF%BC%8C%E8%A7%A3%E5%86%B3%E5%88%97%E8%A1%A8%E6%95%B0%E6%8D%AE%E8%BF%87%E5%A4%9A%E4%B8%8D%E8%83%BD%E6%B8%B2%E6%9F%93%E9%97%AE%E9%A2%98",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": []
+		}
+	}
+}

@@ -1,0 +1,14 @@
+.list-item{
+  height: 300rpx;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #fff;
+  width: 50%;
+  float: left
+}
+.list-page{
+  width: 100%;
+  float: left
+}

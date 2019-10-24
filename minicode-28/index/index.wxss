@@ -1,0 +1,80 @@
+/* template/recycle-view-list/item/item.wxss */
+image,text,view{
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.itemRecord{
+  width: 45vw;
+  border:2rpx solid;
+  float: left;
+  font-size: 24rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-left: calc(10vw / 3);
+  margin-top: 20rpx;
+  height: calc( 45vw + 180rpx );
+  position: relative;
+}
+.itemRecord > view{
+  width: 45vw;
+  height: 40rpx;
+  float: left;
+  padding: 0 5%;
+  line-height: 40rpx;
+}
+.img{
+  width: 45vw;
+  height: 45vw;
+  background-color: #F7F7F7;
+  float: left;
+}
+.name{
+  font-size: 24rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  font-weight: bold;
+  margin-top: 8rpx;
+}
+.icon > text{
+  font-size: 18rpx;
+  border-radius: 10rpx;
+  border: 2rpx solid;
+  color: #DF9652;
+  padding: 2rpx 8rpx;
+  margin-right: 10rpx;
+}
+.oldPrice{
+  text-decoration: line-through;
+  color: #999999;
+  font-size: 20rpx;
+}
+.newPrice{
+  color: #DF9652;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+.btn{
+  position: absolute;
+  width: 130rpx;
+  bottom: 5rpx;
+  right: 0;
+}
+.btn > view{
+  width: 50rpx;
+  height: 50rpx;
+  float: left;
+  margin-right: 15rpx;
+  overflow: hidden;
+}
+.btn > view > button{
+  width: 100% !important;
+  height: 100% !important;
+  background-color: transparent !important;
+  border: unset !important;
+}
+.btn > view > button{
+  content: unset !important;
+}

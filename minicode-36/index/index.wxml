@@ -1,0 +1,5 @@
+<view class="list-box">
+  <view id="page{{pindex}}" class="list-page" style="height:{{pitem.height ? pitem.height+'px':'auto'}}" wx:for="{{list}}" wx:for-item="pitem" wx:for-index="pindex" wx:key="{{pindex}}">
+    <view wx:if='{{pitem.length > 0}}' class="list-item" wx:for="{{pitem}}" wx:key="{{index}}" style="background:url( https://file.taojianlou.com/goods/UlzjQ10ZqJsi5l6RtzXC87HYZsq4Gbzs.jpeg?image=599,800&x-oss-process=image/resize,s_320 ) no-repeat 100%/100%">{{item}}</view>
+  </view>
+</view>

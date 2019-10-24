@@ -1,0 +1,20 @@
+<!-- <view>
+  
+  <input bindinput="inp" placeholder="请输入"></input>
+  <button bindtap="caozuo" data-type="add">增</button>
+  <button bindtap="caozuo" data-type="del">删</button>
+  <button bindtap="caozuo" data-type="upd">改</button>
+  <button bindtap="caozuo" data-type="sel">查</button>
+  <block wx:if="{{content}}">
+    <view wx:if="{{type==0}}">
+      _id：{{content._id}}
+    </view>
+    <view wx:if="{{type==3}}" wx:for="{{content}}" for:key="index">
+      <view>_id：{{item._id}}</view>
+      <view>_openid：{{item._openid}}</view>
+      <view>name：{{item.name}}</view>
+    </view>
+  </block>
+</view> -->
+<!--文件上传--->
+<button bindtap="fileUpload">上传</button>

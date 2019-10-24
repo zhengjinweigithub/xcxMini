@@ -1,0 +1,3 @@
+<!--pages/merchant/code/code.wxml-->
+<view></view>
+<canvas id="merchantcode" style="width:100%;height:100%;" canvas-id="merchantcode"></canvas>

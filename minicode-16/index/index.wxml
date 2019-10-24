@@ -1,0 +1,9 @@
+<block wx:for="{{showCards}}" key="{{index}}">
+
+  <view wx:if="{{item.type !== 'empty-card'}}" class="card" id="{{index}}">
+    <image src="{{item.url}}&x-oss-process=image/resize,s_320" mode="widthFix"></image>
+  </view>
+  <view wx:if="{{item.type === 'empty-card'}}" class="card" style="height: {{item.height}}px">
+  </view>
+
+</block>

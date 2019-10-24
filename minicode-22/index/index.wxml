@@ -1,0 +1,5 @@
+<recycle-view class="list" scroll-y="true" id="recycleId" batch="{{batchSetRecycleData}}" bindscrolltolower="bindscrolltolower">
+  <recycle-item class="record" wx:for="{{recycleList}}" wx:key="">
+    <view class="record_img" style="background:url( {{ item.images[0] }} ) no-repeat 100%/100%"></view>
+  </recycle-item>
+</recycle-view>

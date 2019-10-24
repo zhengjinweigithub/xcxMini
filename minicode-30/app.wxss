@@ -1,0 +1,43 @@
+.container {
+  width: 100%;
+  padding: 20rpx 30rpx;
+  background-color: #f8f8f8;
+}
+page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  /* background-color: #fff; */
+  background-color: #f8f8f8;
+}
+view, navigator {
+  box-sizing: border-box;
+}
+/* 带竖线的标题 */
+.title-with-vertical-line {
+  position: relative;
+  width: 100%;
+  padding-left: 20rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  margin: 20rpx 0;
+  font-weight: bold;
+  color: #454CA3;
+  text-align: left;
+  
+}
+.title-with-vertical-line:before {
+  position: absolute;
+  left: 0;
+  top: 0rpx;
+  content: '';
+  width: 4rpx;
+  height: 30rpx;
+  background-color: #454CA3;
+}
+/* 组件展示区域 */
+.component-display-box {
+  width: 100%;
+  background-color: #fff;
+}

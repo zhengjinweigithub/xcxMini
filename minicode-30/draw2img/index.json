@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "小程序生成图片",
+  "usingComponents": {
+    "generate-pic": "../../components/generate-pic/generate-pic"
+  }
+}

@@ -1,0 +1,9 @@
+<!-- 与ios原生微信极为相似，还有一点不想努力了 -->
+<view class='container'>
+  <swiper-out bind:onTap='onTap' bind:onDelete='onDelete'>
+    <view class="take">聊天</view>
+  </swiper-out>
+  <swiper-out setting='设为未读' wx:key='index' wx:for='123456' bind:onTap='onTap' bind:onDelete='onDelete' bind:onSetting='onSetting'>
+    <view class="take">聊天{{index}}</view>
+  </swiper-out>
+</view>

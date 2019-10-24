@@ -1,0 +1,19 @@
+<view class="cont">
+  <view class="left">
+    <view id="left{{ind}}" wx:for="{{leftList}}" wx:for-item="list" wx:for-index="ind" wx:key="ind" style="height:{{list.height ? list.height+'px':'auto'}}">
+      <view wx:if="{{list.length>0}}" wx:for="{{list}}" wx:key="id">
+        <view class="img" style="height:{{item.imgH}}px !important;background:url({{item.images[0]}}&x-oss-process=image/resize,s_320)"></view>
+        <view class="title">{{item.title}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="right">
+    <view id="right{{ind}}" wx:for="{{rightList}}" wx:for-item="list" wx:for-index="ind" wx:key="ind" style="height:{{list.height ? list.height+'px':'auto'}}">
+      <view wx:if="{{list.length>0}}" wx:for="{{list}}" wx:key="id">
+        <view class="img" style="height:{{item.imgH}}px !important;background:url({{item.images[0]}}&x-oss-process=image/resize,s_320)"></view>
+        <view class="title">{{item.title}}</view>
+      </view>
+    </view>
+  </view>
+</view>

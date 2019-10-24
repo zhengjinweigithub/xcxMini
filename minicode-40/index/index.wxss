@@ -1,0 +1,43 @@
+page{
+  background-color: #efefef;
+}
+view{
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.cont,.left > view,.right > view{
+  width: 100%;
+  float: left;
+}
+.left,.right{
+  width: 45vw;
+  float: left;
+  margin-left: calc(10vw / 3);
+}
+.left >view> view,.right >view> view{
+  width: 45vw;
+  float: left;
+  border-radius: 10rpx;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.img,.title{
+  width: 100%;
+  float: left;
+  background-color: #fff;
+}
+.img{
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: 50% !important;
+}
+.title{
+  height: 30px;
+  line-height: 30px;
+  font-size: 24rpx;
+  padding: 0 5%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}

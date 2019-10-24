@@ -1,0 +1,8 @@
+<view class="list">
+  <block wx:for="{{showList}}" wx:key="id">
+    <view class="record" wx:if="{{item.type !== 'empty-card'}}">
+      <view style="background:url( {{item.images[0]}} ) no-repeat 100%/100%"></view>
+    </view>
+    <view class="record" wx:if="{{item.type === 'empty-card'}}" style="height:{{item.height}}px"></view>
+  </block>
+</view>

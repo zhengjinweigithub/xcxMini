@@ -1,0 +1,28 @@
+.component-page {
+  background-color: #fff;
+}
+.component-page .item-box {
+  padding: 0;
+}
+.component-page .variable-table {
+  width: 100%;
+}
+.component-page .variable-table .vt-td {
+  width: 20%;
+  font-size: 28rpx;
+  padding: 20rpx 0;
+  color: #666;
+  text-align: center;
+}
+.component-page .variable-table .vt-head {
+  width: 100%;
+  display: flex;
+  background-color: #eee;
+}
+.component-page .variable-table .vt-head .vt-td {
+  color: #333;
+}
+.component-page .variable-table .vt-tr {
+  width: 100%;
+  display: flex;
+}

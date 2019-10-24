@@ -1,0 +1,18 @@
+<!--template/authorize/authorize.wxml-->
+<view wx:if="{{isshow}}" class="aut_v_c">
+  <view class="aut_v">
+    <text>小程序需获取用户信息授权</text>
+    <view>
+      <button bindtap="nologin" size="mini" class="is_q">
+        先体验
+      </button>
+      <button bindgetuserinfo="getuserinfo" open-type="getUserInfo" size="mini" class="is_q">
+        确认授权
+      </button>
+    </view>
+  </view>
+  <!--  -->
+</view>
+<view wx:if="{{isshow&&(pageCode=='productdetail'||pageCode=='merchantindex')}}" class="fg_white"></view>
+<image wx:if="{{isshow&&pageCode=='index'}}" class="aut_v_c_image" src="/images/tabbar1.png" mode="widthFix"></image>
+<image wx:if="{{isshow&&pageCode=='personal'}}" class="aut_v_c_image" src="/images/tabbar2.png" mode="widthFix"></image>

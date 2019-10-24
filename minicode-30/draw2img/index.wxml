@@ -1,0 +1,33 @@
+<!--pages/component/component.wxml-->
+<view class="component-page container">
+  <view class="name item-box">
+    <view class="title-with-vertical-line">组件名</view>
+    <view class="">Canvas 生成图片</view>
+  </view>
+  <view class="display item-box">
+    <view class="title-with-vertical-line">组件展示</view>
+    <view class="component-display-box">
+      <generate-pic></generate-pic>
+    </view>
+  </view>
+  <view class="variable-table item-box">
+    <view class="title-with-vertical-line">组件所需参数</view>
+    <view class="vt-head">
+      <view class="vt-td">字段名</view>
+      <view class="vt-td">类型</view>
+      <view class="vt-td">是否必填</view>
+      <view class="vt-td">默认值</view>
+      <view class="vt-td">描述</view>
+    </view>
+    <view
+      class="vt-tr"
+      wx:for="{{varData}}"
+      wx:key="{{index}}">
+      <view class="vt-td">{{item.name}}</view>
+      <view class="vt-td">{{item.type}}</view>
+      <view class="vt-td">{{item.required ? '是' : '否'}}</view>
+      <view class="vt-td">{{item.default}}</view>
+      <view class="vt-td">{{item.desc}}</view>
+    </view>
+  </view>
+</view>

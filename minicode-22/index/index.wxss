@@ -1,0 +1,20 @@
+.list{
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+  padding-top: 20rpx;
+}
+.record{
+  width: 45vw;
+  height: 45vw;
+  background-color: #fff;
+  float: left;
+  margin-left: 3.3vw;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+.record_img{
+  width: 45vw;
+  height: 45vw !important;
+  overflow: hidden;
+}
